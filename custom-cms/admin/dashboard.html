@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title></head>
+<body>
+  <h2>Muokkaa sivua</h2>
+  <input id="title" placeholder="Otsikko"><br>
+  <textarea id="aboutText" placeholder="Kuvaus"></textarea><br>
+  <input id="heroImage" placeholder="Kuvan URL"><br>
+  <button onclick="saveContent()">Tallenna</button>
+
+  <script>
+    async function saveContent() {
+      const token = localStorage.getItem("token");
+      const content = {
+        title: document.getElementById("title").value,
+        aboutText: document.getElementById("aboutText").value,
+        heroImage: document.getElementById("heroImage").value
+      };
+
+      const res = await fetch("http://localhost:5000/content", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({ content })
+      });
+
+      if (res.ok) {
+        alert("Tallennettu onnistuneesti!");
+      } else {
+        alert("Tallennus epäonnistui");
+      }
+    }
+  </script>
+</body>
+</html>
