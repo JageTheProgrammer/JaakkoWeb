@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yrityksen sivu</title>
+</head>
+<body>
+  <h1 id="title"></h1>
+  <p id="aboutText"></p>
+  <img id="heroImage" width="400" />
+
+  <script>
+    async function loadContent() {
+      const res = await fetch("http://localhost:5000/content/company123");
+      const data = await res.json();
+      if (data?.content) {
+        document.getElementById("title").textContent = data.content.title;
+        document.getElementById("aboutText").textContent = data.content.aboutText;
+        document.getElementById("heroImage").src = data.content.heroImage;
+      }
+    }
+    loadContent();
+  </script>
+</body>
+</html>
