@@ -1,0 +1,14 @@
+const mongoose = require("mongoose");
+
+const ContentSchema = new mongoose.Schema({
+  companyId: { type: String, required: true },
+  page: { type: String, default: "homepage" },
+  content: {
+    title: String,
+    aboutText: String,
+    heroImage: String
+  },
+  lastUpdated: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model("Content", ContentSchema);
