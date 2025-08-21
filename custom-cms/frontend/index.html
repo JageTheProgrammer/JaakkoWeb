@@ -3,197 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jaakko Maatiala | Portfolio</title>
+  <title>CMS Admin Panel</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .hidden { display: none; }
+    input, textarea, button { display: block; margin: 10px 0; width: 100%; }
+    .section { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
+  </style>
 </head>
 <body>
-<header>
-  <nav class="navbar">
-    <div class="container">
-      <h1 class="logo">Jaakko Maatiala</h1>
-      <ul class="nav-list" id="nav-list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <h1>Custom CMS Admin</h1>
+
+  <!-- Login -->
+  <div id="loginDiv">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <div id="loginMessage"></div>
+  </div>
+
+  <!-- CMS Panel -->
+  <div id="cmsPanel" class="hidden">
+    <h2>Edit Content</h2>
+
+    <div class="section">
+      <h3>Hero Section</h3>
+      <input type="text" id="heroTitle" placeholder="Hero Title">
+      <input type="text" id="heroText" placeholder="Hero Text">
+      <input type="text" id="heroImage" placeholder="Hero Image URL">
     </div>
-  </nav>
-</header>
 
-<!-- Hero -->
-<section id="hero" class="hero-section">
-  <div class="container hero-content">
-    <div class="hero-text">
-      <h2 class="fade-in" id="heroTitle">Custom <span>Websites</span> for Small Businesses</h2>
-      <p class="fade-in delay-1" id="heroText">Affordable & Professional solutions by Jaakko, a 16-year-old web developer from Finland.</p>
-      <a href="#contact" class="btn pulse">Hire Me</a>
+    <div class="section">
+      <h3>About Section</h3>
+      <input type="text" id="aboutText1" placeholder="About Paragraph 1">
+      <input type="text" id="aboutText2" placeholder="About Paragraph 2">
+      <input type="text" id="aboutImage" placeholder="About Image URL">
     </div>
-    <div class="hero-img">
-      <img id="heroImage" src="img/withbg.jpeg" alt="Profile Photo" />
+
+    <div class="section">
+      <h3>Skills</h3>
+      <textarea id="skills" placeholder="Comma-separated skills"></textarea>
     </div>
-  </div>
-</section>
 
-<!-- About -->
-<section id="about" class="section">
-  <div class="container">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <img id="aboutImage" src="img/withbg.jpeg" alt="Profile Photo" class="about-img" />
-      <div id="aboutTextContainer">
-        <p id="aboutText1">Hey! I’m Jaakko Maatiala, 16 years old from Finland. I study programming at Keuda, and I’m passionate about building modern, responsive websites.</p>
-        <p id="aboutText2">My skills include <strong>HTML, CSS, JavaScript</strong>, and various frameworks. I’m always eager to learn new technologies and improve my skills.</p>
-      </div>
+    <div class="section">
+      <h3>Services</h3>
+      <textarea id="services" placeholder='JSON array, e.g. [{"name":"Basic","price":"100€","features":["A","B"]}]'></textarea>
     </div>
-  </div>
-</section>
 
-<!-- Skills -->
-<section id="skills" class="section alt-bg">
-  <div class="container">
-    <h2>Skills</h2>
-    <ul class="skills-list" id="skillsList">
-      <!-- Dynaamiset skillit tulevat tästä -->
-    </ul>
-  </div>
-</section>
-
-<!-- Services -->
-<section id="services" class="section">
-  <div class="container">
-    <h2>My Offers</h2>
-    <div class="service-cards" id="servicesList">
-      <!-- Dynaamiset palvelut tulevat tästä -->
+    <div class="section">
+      <h3>Portfolio</h3>
+      <textarea id="portfolio" placeholder='JSON array, e.g. [{"title":"Project","description":"Desc","image":"url"}]'></textarea>
     </div>
-  </div>
-</section>
 
-<!-- Portfolio -->
-<section id="portfolio" class="section">
-  <div class="container">
-    <h2>My Work</h2>
-    <div class="projects" id="portfolioList">
-      <!-- Dynaamiset projektit tulevat tästä -->
+    <div class="section">
+      <h3>Testimonials</h3>
+      <textarea id="testimonials" placeholder='JSON array, e.g. [{"author":"Client","text":"Great!"}]'></textarea>
     </div>
-  </div>
-</section>
 
-<!-- Testimonials -->
-<section id="testimonials" class="section alt-bg">
-  <div class="container">
-    <h2>Testimonials</h2>
-    <div class="testimonials" id="testimonialsList">
-      <!-- Dynaamiset testimonials tulevat tästä -->
-    </div>
+    <button id="saveBtn">Save Content</button>
+    <div id="saveMessage"></div>
   </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="section">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <form id="contact-form" class="contact-form shadow">
-      <input type="text" name="from_name" placeholder="Your Name" required />
-      <input type="email" name="from_email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send</button>
-      <div id="form-message"></div>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>© <span id="year"></span> Jaakko Maatiala - All Rights Reserved</p>
-    <p>Response time estimated in 48h.</p>
-  </div>
-</footer>
 
 <script>
-  const backendUrl = "https://your-backend-url.onrender.com"; // Vaihda oma backend URL:iin
+  const backendUrl = "https://your-backend-url.onrender.com"; // Vaihda backend-URL:iin
+  let token = null;
 
-  async function loadCMSContent() {
+  document.getElementById("loginBtn").addEventListener("click", async () => {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
     try {
-      const res = await fetch(`${backendUrl}/content/company123`);
+      const res = await fetch(`${backendUrl}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
       const data = await res.json();
-      if(data?.content) {
-        // Hero
-        document.getElementById("heroTitle").textContent = data.content.heroTitle || "";
-        document.getElementById("heroText").textContent = data.content.heroText || "";
-        document.getElementById("heroImage").src = data.content.heroImage || "img/withbg.jpeg";
-
-        // About
-        document.getElementById("aboutImage").src = data.content.aboutImage || "img/withbg.jpeg";
-        document.getElementById("aboutText1").textContent = data.content.aboutText1 || "";
-        document.getElementById("aboutText2").textContent = data.content.aboutText2 || "";
-
-        // Skills
-        const skillsList = document.getElementById("skillsList");
-        skillsList.innerHTML = "";
-        if(Array.isArray(data.content.skills)) {
-          data.content.skills.forEach(skill => {
-            const li = document.createElement("li");
-            li.textContent = skill;
-            skillsList.appendChild(li);
-          });
-        }
-
-        // Services
-        const servicesList = document.getElementById("servicesList");
-        servicesList.innerHTML = "";
-        if(Array.isArray(data.content.services)) {
-          data.content.services.forEach(service => {
-            const div = document.createElement("div");
-            div.className = "card shadow hover-up";
-            div.innerHTML = `
-              <h3>${service.name}</h3>
-              <p class="price">${service.price}</p>
-              <ul>${service.features.map(f => `<li>${f}</li>`).join("")}</ul>
-            `;
-            servicesList.appendChild(div);
-          });
-        }
-
-        // Portfolio
-        const portfolioList = document.getElementById("portfolioList");
-        portfolioList.innerHTML = "";
-        if(Array.isArray(data.content.portfolio)) {
-          data.content.portfolio.forEach(project => {
-            const div = document.createElement("div");
-            div.innerHTML = `<img src="${project.image}" alt="${project.title}" class="portfolio-img shadow" /><div><p>${project.description}</p></div>`;
-            portfolioList.appendChild(div);
-          });
-        }
-
-        // Testimonials
-        const testimonialsList = document.getElementById("testimonialsList");
-        testimonialsList.innerHTML = "";
-        if(Array.isArray(data.content.testimonials)) {
-          data.content.testimonials.forEach(testimonial => {
-            const block = document.createElement("blockquote");
-            block.innerHTML = `"${testimonial.text}"<br><span>- ${testimonial.author}</span>`;
-            testimonialsList.appendChild(block);
-          });
-        }
+      if(data.token) {
+        token = data.token;
+        document.getElementById("loginDiv").classList.add("hidden");
+        document.getElementById("cmsPanel").classList.remove("hidden");
+        loadContent();
+      } else {
+        document.getElementById("loginMessage").textContent = "Login failed";
       }
     } catch(err) {
-      console.error("CMS content fetch error:", err);
+      console.error(err);
+      document.getElementById("loginMessage").textContent = "Error connecting to server";
+    }
+  });
+
+  async function loadContent() {
+    try {
+      const res = await fetch(`${backendUrl}/content/company123`, {
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+      const data = await res.json();
+      if(data.content) {
+        document.getElementById("heroTitle").value = data.content.heroTitle || "";
+        document.getElementById("heroText").value = data.content.heroText || "";
+        document.getElementById("heroImage").value = data.content.heroImage || "";
+
+        document.getElementById("aboutText1").value = data.content.aboutText1 || "";
+        document.getElementById("aboutText2").value = data.content.aboutText2 || "";
+        document.getElementById("aboutImage").value = data.content.aboutImage || "";
+
+        document.getElementById("skills").value = data.content.skills ? data.content.skills.join(",") : "";
+        document.getElementById("services").value = JSON.stringify(data.content.services || [], null, 2);
+        document.getElementById("portfolio").value = JSON.stringify(data.content.portfolio || [], null, 2);
+        document.getElementById("testimonials").value = JSON.stringify(data.content.testimonials || [], null, 2);
+      }
+    } catch(err) {
+      console.error(err);
     }
   }
 
-  loadCMSContent();
+  document.getElementById("saveBtn").addEventListener("click", async () => {
+    const payload = {
+      heroTitle: document.getElementById("heroTitle").value,
+      heroText: document.getElementById("heroText").value,
+      heroImage: document.getElementById("heroImage").value,
+      aboutText1: document.getElementById("aboutText1").value,
+      aboutText2: document.getElementById("aboutText2").value,
+      aboutImage: document.getElementById("aboutImage").value,
+      skills: document.getElementById("skills").value.split(",").map(s => s.trim()),
+      services: JSON.parse(document.getElementById("services").value || "[]"),
+      portfolio: JSON.parse(document.getElementById("portfolio").value || "[]"),
+      testimonials: JSON.parse(document.getElementById("testimonials").value || "[]")
+    };
+    try {
+      const res = await fetch(`${backendUrl}/content/update/company123`, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      document.getElementById("saveMessage").textContent = data.message || "Saved!";
+    } catch(err) {
+      console.error(err);
+      document.getElementById("saveMessage").textContent = "Error saving content";
+    }
+  });
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){ emailjs.init("hYEWavyYwhnNECROV"); })();
-</script>
-<script src="js/script.js"></script>
 </body>
 </html>
