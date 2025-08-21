@@ -19,3 +19,58 @@
     "nodemon": "^2.0.22"
   }
 }
+{
+  "content": {
+    "heroTitle": "Custom Websites for Small Businesses",
+    "heroText": "Affordable & Professional solutions by Jaakko, a 16-year-old web developer from Finland.",
+    "heroImage": "https://yourcdn.com/images/hero.jpeg",
+    
+    "aboutText1": "Hey! I’m Jaakko Maatiala, 16 years old from Finland. I study programming at Keuda, and I’m passionate about building modern, responsive websites.",
+    "aboutText2": "My skills include HTML, CSS, JavaScript, and various frameworks. I’m always eager to learn new technologies and improve my skills.",
+    "aboutImage": "https://yourcdn.com/images/about.jpeg",
+    
+    "skills": ["HTML5 & CSS3", "JavaScript (ES6+)", "Responsive Web Design", "React & Vue.js", "Node.js & Express", "Version Control (Git & GitHub)", "UI/UX Principles", "SEO Basics", "Basic Graphic Design"],
+    
+    "services": [
+      {
+        "name": "Basic Website",
+        "price": "100–300€",
+        "features": ["3–5 pages", "Responsive & SEO-friendly", "No backend"]
+      },
+      {
+        "name": "Custom Website + Backend",
+        "price": "300–500€",
+        "features": ["Extra customization", "Backend & database", "Advanced features"]
+      },
+      {
+        "name": "Monthly Maintenance",
+        "price": "From 30€/month",
+        "features": ["Bug fixes & edits", "Security updates", "Backup & monitoring"]
+      },
+      {
+        "name": "Consulting & Training",
+        "price": "Contact for pricing",
+        "features": ["Web strategy advice", "1-on-1 training", "Technical support"]
+      }
+    ],
+    
+    "portfolio": [
+      {
+        "title": "Project 1",
+        "description": "Most of my projects are private, but I can show you some examples of my work. I have experience with HTML, CSS, JavaScript, and various frameworks.",
+        "image": "https://yourcdn.com/images/project1.png"
+      }
+    ],
+    
+    "testimonials": [
+      {
+        "author": "Client from Finland",
+        "text": "Jaakko delivered our website quickly and professionally. Communication was smooth and the end result exceeded our expectations!"
+      },
+      {
+        "author": "Small Business Owner",
+        "text": "Very talented and reliable developer. Highly recommended for small business websites."
+      }
+    ]
+  }
+}
